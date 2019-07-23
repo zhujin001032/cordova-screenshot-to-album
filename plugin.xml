@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="com.jasonhe.ScreenshotSaveToAlbumPlugin" version="0.1" 
+    xmlns="http://apache.org/cordova/ns/plugins/1.0" 
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>ScreenshotSaveToAlbumPlugin</name>
+    <description>screenshot save to album Plugin for iOS Android</description>
+    <license>JasonHE</license>
+    <keywords>cordova,screenshot,ecosystem:cordova,cordova-android,cordova-ios,save-album</keywords>
+    <js-module name="ScreenshotSaveToAlbumPlugin" src="www/ScreenshotSaveToAlbumPlugin.js">
+        <clobbers target="cordova.plugins.ScreenshotSaveToAlbumPlugin" />
+    </js-module>
+    <platform name="ios">
+        <config-file parent="/*" target="config.xml">
+            <feature name="ScreenshotSaveToAlbumPlugin">
+                <param name="ios-package" value="ScreenshotSaveToAlbumPlugin" />
+            </feature>
+        </config-file>
+        
+        
+        <preference name="PHOTO_LIBRARY_USAGE_DESCRIPTION" default=" " />
+        <config-file target="*-Info.plist" parent="NSPhotoLibraryUsageDescription">
+          <string>$PHOTO_LIBRARY_USAGE_DESCRIPTION</string>
+        </config-file>
+        <preference name="PHOTO_LIBRARY_ADDITIONS_USAGE_DESCRIPTION" default=" " />
+        <config-file target="*-Info.plist" parent="NSPhotoLibraryAdditionsUsageDescription">
+          <string>$PHOTO_LIBRARY_ADDITIONS_USAGE_DESCRIPTION</string>
+        </config-file>
+
+        <source-file src="src/ios/ScreenshotSaveToAlbumPlugin.m" />
+    </platform>
+    <platform name="android">
+        <config-file parent="/*" target="res/xml/config.xml">
+            <feature name="ScreenshotSaveToAlbumPlugin">
+                <param name="android-package" value="com.jasonhe.ScreenshotSaveToAlbumPlugin.ScreenshotSaveToAlbumPlugin" />
+            </feature>
+        </config-file>
+         <config-file target="AndroidManifest.xml" parent="/*">
+            <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+        </config-file>
+        <source-file src="src/android/PermissionHelper.java" target-dir="src/com/jasonhe/ScreenshotSaveToAlbumPlugin/ScreenshotSaveToAlbumPlugin"/>
+        <source-file src="src/android/ScreenshotSaveToAlbumPlugin.java" target-dir="src/com/jasonhe/ScreenshotSaveToAlbumPlugin/ScreenshotSaveToAlbumPlugin" />
+    </platform>
+    <author>Jason HE</author>
+</plugin>
