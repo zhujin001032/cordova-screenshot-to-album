@@ -1,0 +1,39 @@
+{
+    "name": "com.jasonhe.cordova.screenshot",
+    "version": "1.0.1",
+    "description": "screenshot save to album Plugin for iOS Android",
+    "cordova": {
+        "id": "com.jasonhe.cordova.screenshot",
+        "platforms": [
+            "ios",
+            "android"
+        ]
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/zhujin001032/cordova-screenshot-to-album.git"
+    },
+    "keywords": [
+        "cordova",
+        "screenshot",
+        "ecosystem:cordova",
+        "cordova-android",
+        "cordova-ios",
+        "save-album",
+        "ecosystem:cordova",
+        "cordova-ios",
+        "cordova-android"
+    ],
+    "devDependencies": {
+        "sync-cordova-xml": "^0.4.0"
+    },
+    "scripts": {
+        "version": "sync-cordova-xml package.json plugin.xml --output plugin.xml && git add plugin.xml"
+    },
+    "author": "Jason He",
+    "license": "JasonHE",
+    "bugs": {
+        "url": "https://github.com/zhujin001032/cordova-screenshot-to-album/issues"
+    },
+    "homepage": "https://github.com/zhujin001032/cordova-screenshot-to-album#readme"
+}
