@@ -6,7 +6,7 @@
 @interface Screenshot : CDVPlugin {
   // Member variables go here.
 }
-
+@end
 
 @implementation Screenshot
 
@@ -26,7 +26,7 @@ CGFloat statusBarHeight()
     UIGraphicsEndImageContext();
     
     // cut the status bar from the screenshot
-    CGRect smallRect = CGRectMake (0,statusBarHeight()*img.scale,rect.size.width*img.scale,rect.size.height*img.scale);
+    CGRect smallRect = CGRectMake (0,0,rect.size.width*img.scale,rect.size.height*img.scale);
     
     CGImageRef subImageRef = CGImageCreateWithImageInRect(img.CGImage, smallRect);
     CGRect smallBounds = CGRectMake(0,0,CGImageGetWidth(subImageRef), CGImageGetHeight(subImageRef));

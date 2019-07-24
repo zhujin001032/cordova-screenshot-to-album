@@ -11,7 +11,7 @@ install it via cordova cli
 ```
 cordova plugin add https://github.com/zhujin001032/cordova-screenshot-to-album.git
 or
-ionic cordova plugin add com.jasonhe.cordova.screenshot 1.0.2 "com.jasonhe.cordova.screenshot"
+ionic cordova plugin add com.jasonhe.cordova.screenshot
 ```
 
 notice:
@@ -19,36 +19,36 @@ in iOS, only jpg format is supported
 in Android, the default WebView and [Crosswalk](https://crosswalk-project.org/documentation/cordova.html) are both supported
 
 ## usage
-import { Screenshot } from '@ionic-native/screenshot/ngx';
-constructor(
-private screenshot: Screenshot)
-{
+after import
+declare let cordova;
 
 ```js
-this.screenshot.saveToAlbum().then(onSuccess => {
-console.log("success", onSuccess.filePath);
-}, onError => {
-console.log("fail");
+cordova.plugins.Screenshot.saveToAlbum( (error, onSuccess) => {
+if (error) {
+console.error(error);
+} else {
+console.log('success', onSuccess.filePath);
+}
 });
 ```
 take screenshot with jpg and custom quality
 ```js
-this.screenshot.save(function(error,res){
-if(error){
+cordova.plugins.Screenshot.save((error, onSuccess) => {
+if (error) {
 console.error(error);
-}else{
-console.log('ok',res.filePath);
+} else {
+console.log('success', onSuccess.filePath);
 }
 },'jpg',50);
 ```
 
 define a filename
 ```js
-this.screenshot.screenshot.save(function(error,res){
-if(error){
+cordova.plugins.Screenshot.screenshot.save((error, onSuccess) => {
+if (error) {
 console.error(error);
-}else{
-console.log('ok',res.filePath); //should be path/to/myScreenshot.jpg
+} else {
+console.log('success', onSuccess.filePath);
 }
 },'jpg',50,'myScreenShot');
 ```
@@ -57,7 +57,7 @@ screenshot files are stored in /sdcard/Pictures for android.
 
 take screenshot and get it as Data URI
 ```js
-this.screenshot.screenshot.URI(function(error,res){
+cordova.plugins.Screenshot.URI(function(error,res){
 if(error){
 console.error(error);
 }else{
