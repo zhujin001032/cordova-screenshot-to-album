@@ -1,6 +1,6 @@
 {
     "name": "com.jasonhe.cordova.screenshot",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "description": "screenshot save to album Plugin for iOS Android",
     "cordova": {
         "id": "com.jasonhe.cordova.screenshot",
