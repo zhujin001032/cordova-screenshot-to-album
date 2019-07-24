@@ -1,4 +1,4 @@
-package com.jasonhe.ScreenshotSaveToAlbumPlugin;
+package com.jasonhe.cordova.screenshot;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;

@@ -10,6 +10,8 @@ install it via cordova cli
 
 ```
 cordova plugin add https://github.com/zhujin001032/cordova-screenshot-to-album.git
+or
+ionic cordova plugin add com.jasonhe.cordova.screenshot 1.0.2 "com.jasonhe.cordova.screenshot"
 ```
 
 notice:
@@ -31,7 +33,7 @@ console.log("fail");
 ```
 take screenshot with jpg and custom quality
 ```js
-navigator.screenshot.save(function(error,res){
+this.screenshot.save(function(error,res){
 if(error){
 console.error(error);
 }else{

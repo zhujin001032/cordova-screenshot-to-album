@@ -3,14 +3,12 @@
 #import <Cordova/CDV.h>
 #import <Photos/Photos.h>
 
-@interface ScreenshotSaveToAlbumPlugin : CDVPlugin {
+@interface Screenshot : CDVPlugin {
   // Member variables go here.
 }
 
-- (void)coolMethod:(CDVInvokedUrlCommand*)command;
-@end
 
-@implementation ScreenshotSaveToAlbumPlugin
+@implementation Screenshot
 
 CGFloat statusBarHeight()
 {

@@ -12,7 +12,7 @@ module.exports = {
 			callback && callback(null,res);
 		}, function(error){
 			callback && callback(error);
-		}, "ScreenshotSaveToAlbumPlugin", "saveScreenshot", [format, quality, filename]);
+		}, "Screenshot", "saveScreenshot", [format, quality, filename]);
 	},
 	saveToAlbum:function(callback) {
 		
@@ -20,7 +20,7 @@ module.exports = {
 			callback && callback(null,res);
 		}, function(error){
 			callback && callback(error);
-		}, "ScreenshotSaveToAlbumPlugin", "saveScreenshotToAlbum", []);
+		}, "Screenshot", "saveScreenshotToAlbum", []);
 	},
 	URI:function(callback, quality){
 		quality = typeof(quality) !== 'number'?100:quality;
@@ -28,7 +28,7 @@ module.exports = {
 			callback && callback(null, res);
 		}, function(error){
 			callback && callback(error);
-		}, "ScreenshotSaveToAlbumPlugin", "getScreenshotAsURI", [quality]);
+		}, "Screenshot", "getScreenshotAsURI", [quality]);
 
 	},
 
@@ -39,6 +39,6 @@ module.exports = {
 			callback && callback(null,res);
 		}, function(error){
 			callback && callback(error);
-		}, "ScreenshotSaveToAlbumPlugin", method, [quality]);
+		}, "Screenshot", method, [quality]);
 	}
 };

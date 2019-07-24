@@ -1,4 +1,4 @@
-package com.jasonhe.ScreenshotSaveToAlbumPlugin;
+package com.jasonhe.cordova.screenshot;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
