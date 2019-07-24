@@ -31,7 +31,7 @@ console.log("fail");
 ```
 take screenshot with jpg and custom quality
 ```js
-navigator.screenshot.save(function(error,res){
+this.screenshot.save(function(error,res){
 if(error){
 console.error(error);
 }else{
