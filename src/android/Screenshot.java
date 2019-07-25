@@ -21,7 +21,9 @@ import org.json.JSONObject;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import android.provider.MediaStore;
 
 
 public class Screenshot extends CordovaPlugin {
@@ -92,7 +94,6 @@ public class Screenshot extends CordovaPlugin {
      */
     private void saveScreenshotToAlbum(Bitmap bitmap) {
      
-        Context context = this.cordova.getActivity();
         // 首先保存图片
         File appDir = new File(Environment.getExternalStorageDirectory(),
                 "desheng");
@@ -103,23 +104,22 @@ public class Screenshot extends CordovaPlugin {
         File file = new File(appDir, fileName);
         try {
             FileOutputStream fos = new FileOutputStream(file);
-            bmp.compress(Bitmap.CompressFormat.JPEG, 100, fos);
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fos);
             fos.flush();
             fos.close();
         } catch (FileNotFoundException e) {
-            MyToastUtils.showShortToast(context, "保存失败");
+            // MyToastUtils.showShortToast(context, "保存失败");
             e.printStackTrace();
         } catch (IOException e) {
-            MyToastUtils.showShortToast(context, "保存失败");
+            // MyToastUtils.showShortToast(context, "保存失败");
             e.printStackTrace();
         }
 
         // 其次把文件插入到系统图库
         try {
-            MediaStore.Images.Media.insertImage(context.getContentResolver(),
+            MediaStore.Images.Media.insertImage(this.cordova.getActivity().getContentResolver(),
                     file.getAbsolutePath(), fileName, null);
-            MyToastUtils.showShortToast(context, "保存成功");
-
+            // MyToastUtils.showShortToast(this.cordova.getActivity(), "保存成功");
              JSONObject jsonRes = new JSONObject();
             jsonRes.put("filePath", file.getAbsolutePath());
             PluginResult result = new PluginResult(PluginResult.Status.OK, jsonRes);
@@ -133,7 +133,7 @@ public class Screenshot extends CordovaPlugin {
 
         }
         // 最后通知图库更新
-        context.sendBroadcast(new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE,
+        this.cordova.getActivity().sendBroadcast(new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE,
                 Uri.fromFile(new File(file.getPath()))));
     }
 
