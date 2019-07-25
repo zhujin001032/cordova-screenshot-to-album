@@ -27,7 +27,7 @@ cordova.plugins.Screenshot.saveToAlbum( (error, onSuccess) => {
 if (error) {
 console.error(error);
 } else {
-console.log('success', onSuccess.filePath);
+console.log('success' + onSuccess.filePath);
 }
 });
 ```
@@ -37,7 +37,7 @@ cordova.plugins.Screenshot.save((error, onSuccess) => {
 if (error) {
 console.error(error);
 } else {
-console.log('success', onSuccess.filePath);
+console.log('success' + onSuccess.filePath);
 }
 },'jpg',50);
 ```
@@ -48,7 +48,7 @@ cordova.plugins.Screenshot.screenshot.save((error, onSuccess) => {
 if (error) {
 console.error(error);
 } else {
-console.log('success', onSuccess.filePath);
+console.log('success'+ onSuccess.filePath);
 }
 },'jpg',50,'myScreenShot');
 ```
